@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Syne, Plus_Jakarta_Sans } from "next/font/google";
 
 import LanguageProvider from "@/components/LanguageProvider";
 import { getMetadata, localeCookieName, resolveLocale } from "@/lib/i18n";
 
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
   subsets: ["latin"],
 });
 
@@ -33,9 +34,9 @@ export default async function RootLayout({
   const locale = resolveLocale(cookieStore.get(localeCookieName)?.value);
 
   return (
-    <html lang={locale} className="scroll-smooth">
+    <html lang={locale} className="scroll-smooth dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${syne.variable} ${plusJakartaSans.variable} font-sans antialiased selection:bg-indigo-500/30 bg-[#030014] text-white min-h-screen`}
       >
         <LanguageProvider initialLocale={locale}>{children}</LanguageProvider>
       </body>

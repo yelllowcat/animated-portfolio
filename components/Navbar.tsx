@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X, Hexagon } from "lucide-react";
 import Link from "next/link";
 
 import LanguageToggle from "@/components/LanguageToggle";
@@ -23,86 +23,89 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav
-      className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        scrolled
-          ? "bg-white/80 dark:bg-neutral-950/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800"
-          : "bg-transparent"
-      )}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center space-x-2">
-            <Code2 className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
-            <span className="font-bold text-xl tracking-tight">
-              {messages.brand}
+    <div className="fixed top-6 w-full flex justify-center z-50 px-4 pointer-events-none">
+      <nav
+        className={cn(
+          "w-full max-w-4xl rounded-full transition-all duration-500 pointer-events-auto",
+          scrolled
+            ? "glass-pill shadow-2xl py-2 px-6"
+            : "bg-black/20 backdrop-blur-md border border-white/5 py-4 px-8"
+        )}
+      >
+        <div className="flex justify-between items-center">
+          <Link href="/" className="flex items-center space-x-2 group">
+            <Hexagon className="h-6 w-6 text-indigo-400 group-hover:text-fuchsia-400 transition-colors" />
+            <span className="font-display font-bold text-lg tracking-wider uppercase text-white">
+              DGV
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-neutral-600 dark:text-neutral-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors text-sm font-medium"
-              >
-                {link.name}
-              </Link>
-            ))}
-
+          <div className="hidden md:flex items-center gap-8">
+            <div className="flex items-center gap-6 p-1.5 rounded-full bg-white/5 border border-white/10 px-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-neutral-400 hover:text-white transition-colors text-sm font-medium tracking-wide uppercase py-1"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+            
             <LanguageToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="md:hidden flex items-center gap-4">
             <LanguageToggle className="hidden sm:inline-flex" />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-neutral-600 dark:text-neutral-300 hover:text-indigo-600 dark:hover:text-indigo-400"
+              className="text-neutral-400 hover:text-white focus:outline-hidden"
               aria-label={isOpen ? messages.menu.close : messages.menu.open}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800"
-          >
-            <div className="px-4 pt-2 pb-4 space-y-2">
-              <LanguageToggle stacked onSelect={() => setIsOpen(false)} />
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-neutral-600 dark:text-neutral-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-neutral-50 dark:hover:bg-neutral-900 rounded-md"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0, marginTop: 0 }}
+              animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+              exit={{ opacity: 0, height: 0, marginTop: 0 }}
+              className="md:hidden overflow-hidden rounded-2xl bg-[#0a0a0f] border border-white/10"
+            >
+              <div className="px-4 py-6 space-y-4">
+                <LanguageToggle stacked onSelect={() => setIsOpen(false)} />
+                <div className="space-y-2 mt-4">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block px-4 py-3 text-sm font-display font-semibold tracking-wider uppercase text-neutral-300 hover:text-white hover:bg-white/5 rounded-xl transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
+    </div>
   );
 }
