@@ -9,30 +9,30 @@ export default function Footer() {
   const { messages } = useLanguage();
 
   return (
-    <footer id="contact" className="relative bg-[var(--background)] py-16 overflow-hidden">
-      {/* Gradient divider instead of plain border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/30 to-transparent" />
+    <footer id="contact" className="relative bg-[#02040a] py-20 overflow-hidden border-t border-[var(--aurora-1)]/10">
+      {/* Gradient divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--aurora-1)]/40 to-transparent" />
 
       {/* Ambient glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-[var(--accent)]/5 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--aurora-3)]/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="flex flex-col items-center text-center gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col items-center text-center gap-8">
           {/* Full name */}
-          <h3 className="text-2xl md:text-3xl font-display font-bold text-[var(--foreground)]">
+          <h3 className="text-3xl md:text-4xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">
             {messages.footer.heading}
           </h3>
-          <p className="text-[var(--muted)] max-w-md text-lg">
+          <p className="text-[var(--muted-foreground)] max-w-md text-lg font-light">
             {messages.footer.description}
           </p>
 
           {/* Social icons */}
-          <div className="flex gap-4 mt-2">
+          <div className="flex gap-5 mt-4">
             <a
               href={socialLinks.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/10 hover:scale-110 transition-all duration-300 border border-[var(--border)] hover:border-[var(--accent)]/30"
+              className="p-4 rounded-full glass-panel text-[var(--muted-foreground)] hover:text-white hover:bg-white/5 hover:scale-110 transition-all duration-500 hover:border-[var(--aurora-1)]/40 hover:shadow-[0_0_20px_rgba(6,182,212,0.2)]"
               aria-label={messages.footer.githubLabel}
             >
               <svg className="w-5 h-5" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +44,7 @@ export default function Footer() {
               href={socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/10 hover:scale-110 transition-all duration-300 border border-[var(--border)] hover:border-[var(--accent)]/30"
+              className="p-4 rounded-full glass-panel text-[var(--muted-foreground)] hover:text-white hover:bg-white/5 hover:scale-110 transition-all duration-500 hover:border-[var(--aurora-1)]/40 hover:shadow-[0_0_20px_rgba(6,182,212,0.2)]"
               aria-label={messages.footer.linkedinLabel}
             >
               <svg className="w-5 h-5" role="img" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +54,7 @@ export default function Footer() {
             </a>
             <a
               href={socialLinks.email}
-              className="p-3 rounded-full bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--accent)] hover:bg-[var(--accent)]/10 hover:scale-110 transition-all duration-300 border border-[var(--border)] hover:border-[var(--accent)]/30"
+              className="p-4 rounded-full glass-panel text-[var(--muted-foreground)] hover:text-white hover:bg-white/5 hover:scale-110 transition-all duration-500 hover:border-[var(--aurora-1)]/40 hover:shadow-[0_0_20px_rgba(6,182,212,0.2)]"
               aria-label={messages.footer.emailLabel}
             >
               <Mail className="w-5 h-5" />
@@ -63,10 +63,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-[var(--border)] text-center text-sm text-[var(--muted)]">
+        <div className="mt-16 pt-8 border-t border-[var(--border)] text-center text-sm text-[var(--muted)] font-light">
           <p>
             © {new Date().getFullYear()} {messages.brand}.{" "}
-            {messages.footer.builtWith}
+            <span className="opacity-70">{messages.footer.builtWith}</span>
           </p>
         </div>
       </div>
