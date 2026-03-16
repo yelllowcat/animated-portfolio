@@ -66,6 +66,8 @@ export type Messages = {
     githubLabel: string;
     linkedinLabel: string;
     emailLabel: string;
+    instagramLabel: string;
+    whatsappLabel: string;
   };
 };
 
@@ -120,6 +122,8 @@ const messagesByLocale: Record<Locale, Messages> = {
       githubLabel: "GitHub",
       linkedinLabel: "LinkedIn",
       emailLabel: "Correo electrónico",
+      instagramLabel: "Instagram",
+      whatsappLabel: "WhatsApp",
     },
   },
   en: {
@@ -172,6 +176,8 @@ const messagesByLocale: Record<Locale, Messages> = {
       githubLabel: "GitHub",
       linkedinLabel: "LinkedIn",
       emailLabel: "Email",
+      instagramLabel: "Instagram",
+      whatsappLabel: "WhatsApp",
     },
   },
 };

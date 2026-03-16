@@ -71,4 +71,6 @@ export const socialLinks = {
   github: "https://github.com/yelllowcat",
   linkedin: "https://www.linkedin.com/in/david-gonzalez-vargas-a392b0350/",
   email: "mailto:davidgonzalezvargas3@gmail.com",
+  instagram: "https://instagram.com/david_gvvv",
+  whatsapp: "https://wa.me/526121113337?text=Hola%20quiero%20información%20sobre%20la%20página%20web",
 };
