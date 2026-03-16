@@ -3,10 +3,12 @@ import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Studies from "@/components/Studies";
 import Footer from "@/components/Footer";
+import FloatingParticles from "@/components/FloatingParticles";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)] relative">
+      <FloatingParticles count={50} />
       <Navbar />
       <Hero />
       <Projects />
