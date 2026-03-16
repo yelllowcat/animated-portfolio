@@ -179,7 +179,7 @@ const messagesByLocale: Record<Locale, Messages> = {
 const projectCopyByLocale: Record<Locale, Record<number, ProjectCopy>> = {
   es: {
     1: {
-      title: "E-Commerce",
+      title: "Tienda en Línea",
       description:
         "Un panel integral para gestionar productos, pedidos y analítica. Construido con Next.js y Tailwind CSS.",
     },
@@ -216,8 +216,8 @@ const projectCopyByLocale: Record<Locale, Record<number, ProjectCopy>> = {
 const studyCopyByLocale: Record<Locale, Record<number, StudyCopy>> = {
   es: {
     1: {
-      title: "Licenciatura en Ciencias de la Computación",
-      institution: "Universidad Tecnológica",
+      title: "Ingeniería en Desarrollo de Software",
+      institution: "Universidad Autónoma de Baja California Sur",
       description:
         "Enfoque en algoritmos, estructuras de datos y principios de ingeniería de software.",
     },
@@ -230,8 +230,8 @@ const studyCopyByLocale: Record<Locale, Record<number, StudyCopy>> = {
   },
   en: {
     1: {
-      title: "Computer Science BS",
-      institution: "University of Technology",
+      title: "Software Development Engineering",
+      institution: "Universidad Autónoma de Baja California Sur",
       description:
         "Focused on algorithms, data structures, and software engineering principles.",
     },

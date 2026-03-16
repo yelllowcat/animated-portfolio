@@ -141,8 +141,7 @@ export default function Projects() {
                     href={project.github}
                     className="flex items-center gap-1.5 text-sm font-medium text-[var(--foreground)] hover:text-[var(--accent)] transition-colors"
                   >
-                    <Github className="w-4 h-4" />
-                    {messages.projects.code}
+                   
                   </a>
                 </div>
               </div>
