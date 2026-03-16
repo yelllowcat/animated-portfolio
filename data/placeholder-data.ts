@@ -6,6 +6,10 @@ export type ProjectRecord = {
   github: string;
   featured: boolean;
   tags: string[];
+  previewImages?: {
+    es: string;
+    en: string;
+  };
 };
 
 export type StudyRecord = {
@@ -17,31 +21,36 @@ export type StudyRecord = {
 export const projectRecords: ProjectRecord[] = [
   {
     id: 1,
-    link: "#",
+    link: "https://celebrity-shop.store/es",
     github: "#",
     featured: true,
     tags: ["Next.js", "TypeScript", "Tailwind", "Prisma", "PostgreSQL"],
+    previewImages: {
+      es: "/e-com-es.png",
+      en: "/e-com-en.png",
+    },
   },
   {
     id: 2,
-    link: "#",
+    link: "https://barber.celebrity-shop.store/es",
     github: "#",
     featured: true,
     tags: ["Next.js", "TypeScript", "Tailwind", "Prisma", "PostgreSQL"],
+    previewImages: {
+      es: "/appoiments-es.png",
+      en: "/appoiments-en.png",
+    },
   },
   {
-    id: 3,
-    link: "#",
-    github: "https://github.com/yelllowcat/gym-tracker",
+    id: 5,
+    link: "https://estudio-g.vercel.app/",
+    github: "#",
     featured: false,
-    tags: ["Expo, React Native", "TypeScript", "Prisma", "PostgreSQL"],
-  },
-  {
-    id: 4,
-    link: "#",
-    github: "https://github.com/yelllowcat/ProyectoFinal",
-    featured: false,
-    tags: ["PHP, MySQL", "JavaScript", "CSS"],
+    tags: ["Next.js", "Tailwind CSS", "Landing Page"],
+    previewImages: {
+      es: "/landing.png",
+      en: "/landing.png",
+    },
   },
 ];
 

@@ -184,19 +184,14 @@ const projectCopyByLocale: Record<Locale, Record<number, ProjectCopy>> = {
         "Un panel integral para gestionar productos, pedidos y analítica. Construido con Next.js y Tailwind CSS.",
     },
     2: {
-      title: "Panel de Gimnasio",
+      title: "Sitio de Citas",
       description:
-        "Aplicación en tiempo real con respuestas en streaming y renderizado de Markdown.",
+        "Una experiencia web para agendar, organizar y gestionar citas con una interfaz clara y moderna.",
     },
-    3: {
-      title: "Gym Tracker",
+    5: {
+      title: "Landing Estudio G",
       description:
-        "Una app móvil para registrar entrenamientos y objetivos de acondicionamiento físico.",
-    },
-    4: {
-      title: "Plataforma de Red Social",
-      description:
-        "Una mini red social con perfiles de usuario, publicaciones, comentarios y sistema de amistades.",
+        "Una landing enfocada en presentar marca, servicios y contacto con una experiencia visual clara y elegante.",
     },
   },
   en: {
@@ -206,19 +201,14 @@ const projectCopyByLocale: Record<Locale, Record<number, ProjectCopy>> = {
         "A comprehensive dashboard for managing products, orders, and analytics. Built with Next.js and Tailwind CSS.",
     },
     2: {
-      title: "Gym Dashboard",
+      title: "Appointments Site",
       description:
-        "Real-time chat application leveraging streaming responses and markdown rendering.",
+        "A modern booking experience for scheduling, organizing, and managing appointments with a polished interface.",
     },
-    3: {
-      title: "Gym Tracker",
+    5: {
+      title: "Estudio G Landing",
       description:
-        "A mobile app for tracking workouts and fitness goals.",
-    },
-    4: {
-      title: "Social Network Platform",
-      description:
-        "A mini social network with user profiles, posts, comments, and friends system.",
+        "A landing page focused on presenting brand, services, and contact details with a clean, polished experience.",
     },
   },
 };

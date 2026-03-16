@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
@@ -26,8 +27,50 @@ const ProjectPlaceholder = ({
   </div>
 );
 
+const ProjectPreview = ({
+  imageSrc,
+  previewLabel,
+  title,
+  index,
+}: {
+  imageSrc?: string;
+  previewLabel: string;
+  title: string;
+  index: number;
+}) => {
+  if (!imageSrc) {
+    return (
+      <ProjectPlaceholder
+        title={title}
+        previewLabel={previewLabel}
+        index={index}
+      />
+    );
+  }
+
+  return (
+    <div className="relative w-full h-48 overflow-hidden bg-[var(--surface)]">
+      <Image
+        src={imageSrc}
+        alt={`${title} ${previewLabel}`}
+        fill
+        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+        className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/15 to-transparent" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(205,170,92,0.18),transparent_45%)]" />
+      <span className="absolute top-3 left-4 font-display text-6xl font-bold text-white/15 leading-none">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <span className="absolute right-4 top-4 rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.28em] text-white/80 backdrop-blur-md">
+        {previewLabel}
+      </span>
+    </div>
+  );
+};
+
 export default function Projects() {
-  const { messages, projects } = useLanguage();
+  const { locale, messages, projects } = useLanguage();
 
   return (
     <section id="projects" className="py-28 bg-[var(--background)]">
@@ -60,10 +103,11 @@ export default function Projects() {
               whileHover={{ y: -6 }}
               className="group bg-[var(--surface-elevated)] border border-[var(--border)] rounded-2xl overflow-hidden transition-shadow duration-500 hover:shadow-2xl hover:shadow-[var(--accent)]/5 hover:border-[var(--accent)]/30"
             >
-              <ProjectPlaceholder
+              <ProjectPreview
                 title={project.title}
                 previewLabel={messages.projects.previewSuffix}
                 index={index}
+                imageSrc={project.previewImages?.[locale]}
               />
 
               <div className="p-6">
